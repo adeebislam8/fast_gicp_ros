@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="scan_matching_localizer" type="scan_matching_localizer_node" name="scan_matching_localizer_node" output="screen">
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom_frame" args="0 0 0 0 0 0 map odom 10"/> 
+  <node pkg="tf" type="static_transform_publisher" name="base_frame_to_laser" args="0 0 0 0 0 0 base_link laser 10"/> 
+
+  <node pkg="tf" type="static_transform_publisher" name="base_frame_to_imu" args="0 0 0 0 0 0 base_link imu 10"/> 
+
+  <param name="/use_sim_time" value="true"/>
+
+</launch>
